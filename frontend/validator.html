@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Validator — WinPilot</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">Win<strong>Pilot</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="validator.html" class="nav-btn nav-btn--active">Product Validator</a>
+        <a href="hunter.html" class="nav-btn nav-btn--primary">Product Hunter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <div class="page-header">
+        <h1>Product Validator</h1>
+        <p>Submit up to 5 products and get an AI-powered score for each one.</p>
+      </div>
+
+      <!-- Product Input Form -->
+      <section class="card form-section">
+        <div id="product-slots">
+          <!-- Slots injected by validator.js -->
+        </div>
+
+        <div class="form-actions">
+          <button id="add-product-btn" class="btn btn--outline btn--sm" type="button">
+            + Add Product
+          </button>
+          <span id="slot-counter" class="slot-counter">1 / 5</span>
+        </div>
+
+        <div class="submit-row">
+          <button id="validate-btn" class="btn btn--primary btn--large" type="button">
+            Analyze Products
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading State -->
+      <div id="loading" class="loading-state hidden">
+        <div class="spinner"></div>
+        <p>Researching products with AI...</p>
+      </div>
+
+      <!-- Results -->
+      <section id="results" class="results-section hidden">
+        <h2 class="results-title">Analysis Results</h2>
+        <div id="results-grid" class="results-grid">
+          <!-- Result cards injected by validator.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>WinPilot v1.0 — Powered by Claude AI</p>
+    </div>
+  </footer>
+
+  <script src="js/ui.js"></script>
+  <script src="js/validator.js"></script>
+</body>
+</html>

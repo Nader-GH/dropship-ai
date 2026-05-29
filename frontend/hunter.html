@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Hunter — WinPilot</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">Win<strong>Pilot</strong></span>
+      </a>
+      <nav class="main-nav">
+        <a href="validator.html" class="nav-btn">Product Validator</a>
+        <a href="hunter.html" class="nav-btn nav-btn--primary nav-btn--active">Product Hunter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <div class="page-header">
+        <h1>Product Hunter</h1>
+        <p>Tell us about your niche and we'll find 5 trending products worth testing.</p>
+      </div>
+
+      <!-- Step 1: Questionnaire -->
+      <section id="step-questionnaire" class="card form-section">
+        <h2 class="step-title"><span class="step-badge">1</span> Your Niche Profile</h2>
+
+        <div class="form-group">
+          <label for="niche">What niche are you targeting?</label>
+          <input type="text" id="niche" placeholder="e.g. home fitness, pet accessories, kitchen gadgets" maxlength="100" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="country">Target country / region</label>
+            <input type="text" id="country" placeholder="e.g. United States, UK, Australia" maxlength="60" />
+          </div>
+          <div class="form-group">
+            <label for="budget">Monthly ad budget (USD)</label>
+            <select id="budget">
+              <option value="0-300">Under $300</option>
+              <option value="300-500">$300 – $500</option>
+              <option value="500-1000" selected>$500 – $1,000</option>
+              <option value="1000-3000">$1,000 – $3,000</option>
+              <option value="3000+">$3,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="price-range">Preferred product price range (optional)</label>
+            <input type="text" id="price-range" placeholder="e.g. 20-60" maxlength="20" />
+          </div>
+          <div class="form-group">
+            <label for="avoid">Categories to avoid (optional)</label>
+            <input type="text" id="avoid" placeholder="e.g. supplements, electronics" maxlength="100" />
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button id="hunt-btn" class="btn btn--primary btn--large" type="button">
+            Find Trending Products
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <div id="loading" class="loading-state hidden">
+        <div class="spinner"></div>
+        <p>Claude is hunting for winning products...</p>
+      </div>
+
+      <!-- Step 2: Suggestions -->
+      <section id="step-suggestions" class="hidden">
+        <h2 class="step-title"><span class="step-badge">2</span> Pick Up to 3 Products to Validate</h2>
+        <div id="suggestions-grid" class="suggestions-grid">
+          <!-- Suggestion cards injected by hunter.js -->
+        </div>
+        <div class="submit-row">
+          <span id="selection-counter" class="slot-counter">0 / 3 selected</span>
+          <button id="validate-selected-btn" class="btn btn--primary btn--large" type="button" disabled>
+            Validate Selected Products
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 3: Validation Results -->
+      <section id="step-results" class="hidden">
+        <h2 class="step-title"><span class="step-badge">3</span> Validation Results</h2>
+        <div id="results-grid" class="results-grid">
+          <!-- Result cards injected by hunter.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>WinPilot v1.0 — Powered by Claude AI</p>
+    </div>
+  </footer>
+
+  <script src="js/ui.js"></script>
+  <script src="js/hunter.js"></script>
+</body>
+</html>
