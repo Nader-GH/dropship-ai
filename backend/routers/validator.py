@@ -4,7 +4,7 @@ from models.schemas import ValidateRequest, ValidateResponse, ProductResult, Pro
 from services.trends import get_trend_data
 from services.meta_ads import get_ad_competition_data
 from services.aliexpress import get_aliexpress_data
-from services.claude import call_haiku
+from services.claude import call_sonnet
 from prompts.validator_prompt import VALIDATOR_SYSTEM, build_validator_prompt
 
 router = APIRouter()
@@ -19,7 +19,7 @@ def _analyze_single_product(name: str, description: str, image_url: str | None) 
     user_prompt = build_validator_prompt(name, description, trends, meta_ads, aliexpress)
 
     try:
-        data = call_haiku(VALIDATOR_SYSTEM, user_prompt)
+        data = call_sonnet(VALIDATOR_SYSTEM, user_prompt)
     except ValueError as e:
         raise HTTPException(status_code=502, detail=f"Claude parsing error: {e}")
     except Exception as e:
